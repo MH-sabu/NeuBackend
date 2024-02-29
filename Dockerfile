@@ -10,9 +10,9 @@ ENV PYTHONFAULTHANDLER=1 \
 RUN pip install "poetry"
 
 WORKDIR /app/server/
-COPY pyproject.toml *.lock /app/server/
+COPY pyproject.toml /app/server/
 
 RUN poetry config virtualenvs.create false \
-  &&  poetry install --no-interaction --no-ansi
+  &&  poetry install --no-interaction --no-ansi --no-root
 
 ADD . /app/server/
